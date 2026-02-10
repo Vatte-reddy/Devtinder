@@ -1,0 +1,23 @@
+{
+  "name": "devtinder-backend",
+  "version": "1.0.0",
+  "description": "Tinder for dev",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js"
+  },
+  "keywords": [
+    "node",
+    "js",
+    "and",
+    "react",
+    "js"
+  ],
+  "author": "Prudhvi",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.2.1",
+    "nodemon": "^3.1.11"
+  }
+}
