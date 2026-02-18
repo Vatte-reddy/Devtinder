@@ -23,3 +23,17 @@ Write and test all Api's
 ->create user schema
 make a post signup call using postman
 ->error handling using try and catch
+->js vs json difference
+->know express.json() middlewares
+>read mongoose documnet and work on different api's
+->create signup http api
+->use mongoose functions
+->create delete  patch and insert find all functions
+->check validations and validation library
+->add timestamp to track timestamp
+->add api validation and patch request &signup post api
+->never trust req.body
+->validate data in signup api
+->install bcrypt package
+->create passwordhash using  bcrypt.hash & save the user is excrupted password
+->create login and compare credationals
