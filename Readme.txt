@@ -37,3 +37,13 @@ make a post signup call using postman
 ->install bcrypt package
 ->create passwordhash using  bcrypt.hash & save the user is excrupted password
 ->create login and compare credationals
+->install cookie parcel
+->just send dummy cookie to user 
+->create get/profile api and check if you get cookie back
+->install json webtoken
+->in login api , after email and password validation cretae Jwt token and send it back to user inside cookies
+->read the cookies in profile to get data
+->user auth middleware and add userAuth middleware in profile api and new sendconnectionrequest api
+->add expire time to express cookies
+->create userschemce method to get getJWT()
+->create UserSchema method to get compare password
