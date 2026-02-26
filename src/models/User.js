@@ -54,6 +54,17 @@ const userSchema=new mongoose.Schema({
     pincode:{
         type:Number,
     },
+    skills:{
+        type:[String],
+
+    },
+    about:{
+        type:String,
+    },
+    photoUrl:{
+        type:String,        
+
+    }
     
 
 },
@@ -67,6 +78,7 @@ userSchema.methods.getJWT=async function()
     const token=await jwt.sign({userId:user._id},'DevTinder@17');
     return token;
 }
+
 
 const User=mongoose.model('User',userSchema);
 

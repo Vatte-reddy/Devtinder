@@ -47,3 +47,17 @@ make a post signup call using postman
 ->add expire time to express cookies
 ->create userschemce method to get getJWT()
 ->create UserSchema method to get compare password
+
+->check correct validation for api's
+->diff b/w post and get api's
+->write get logic for feed api
+->read about conditions $or and $and
+
+->paging
+/feed?page=1 &limit=10 first ten users
+/feed?page=2 &limit=10
+
+.skip()
+.limit() 
+
+
