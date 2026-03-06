@@ -14,10 +14,10 @@ const profileRouters = require('./routers/Profile');
 const requestsRouter = require('./routers/requests');
 const userRouter = require('./routers/userRouter');
 
-app.use('/auth', authRouters);
-app.use('/profile', profileRouters);
-app.use('/requests', requestsRouter);
-app.use('/users', userRouter);
+app.use('/', authRouters);
+app.use('/', profileRouters);
+app.use('/', requestsRouter);
+app.use('/', userRouter);
 
 
 
