@@ -8,7 +8,7 @@ const { validate } = require('../models/User');
 
 
 
-profileRouters.get("/view", userAuth,async (req, res) => {
+profileRouters.get("/profile/view", userAuth,async (req, res) => {
 
 
     // try to verify token if present
