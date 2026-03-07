@@ -1,0 +1,117 @@
+[
+  {
+    "_id": "699438af2db3bc1a3872b7f4",
+    "lastName": "Kohli",
+    "email": "viratkohli@kohli.com",
+    "__v": 0,
+    "password": "KingKohli@18",
+    "firstName": "Virat"
+  },
+  {
+    "_id": "699498991a0926f2a161f193",
+    "firstName": "dhoni",
+    "lastName": "thala",
+    "email": "dhoni123@gmail.com",
+    "password": "Dhoni123",
+    "createdAt": "2026-02-17T16:34:33.781Z",
+    "updatedAt": "2026-02-17T16:34:33.781Z",
+    "__v": 0
+  },
+  {
+    "_id": "6995bde50f579e93631eb93a",
+    "firstName": "dhawan",
+    "lastName": "shikar",
+    "email": "shikar@gmail.com",
+    "password": "$2b$10$S7eW90As71x2NJpipiYmR.lW7VdxyWOKKmCKAJ81XvbpsOHs.NngK",
+    "createdAt": "2026-02-18T13:25:57.411Z",
+    "updatedAt": "2026-02-18T13:25:57.411Z",
+    "__v": 0
+  },
+  {
+    "_id": "6995bdf6a21db6abd26cb9c1",
+    "firstName": "dhawan",
+    "lastName": "shikar",
+    "email": "shikar@gmail.com",
+    "password": "$2b$10$lCLcJZ68Y2p0N.KSoq7GLuANap9PDWRfDjTGGOhpGpcpLc7fX.Tlu",
+    "createdAt": "2026-02-18T13:26:14.837Z",
+    "updatedAt": "2026-02-18T13:26:14.837Z",
+    "__v": 0
+  },
+  {
+    "_id": "6998011696e9b19e7f180b6a",
+    "firstName": "Rathnakar",
+    "lastName": "Reddy Vatte",
+    "email": "rathnakarreddyvatte@gmail.com",
+    "password": "$2b$10$24Jjila5lJJMLXEdG58mROTuigw2gEmLicSLCL3uNGJzyYUFwKSXi",
+    "createdAt": "2026-02-20T06:37:10.436Z",
+    "updatedAt": "2026-02-20T06:37:10.436Z",
+    "__v": 0
+  },
+  {
+    "_id": "69a18fb7456c38cad0ca9515",
+    "firstName": "Rajat",
+    "lastName": "Patidar",
+    "email": "rajatpatidar123@gmail.com",
+    "password": "$2b$10$8jtdTosTNHKgkFtL9IzRaOXYg.2NV5/jv3pMiR.w1TI3JEw3MT8EK",
+    "skills": [],
+    "createdAt": "2026-02-27T12:36:07.747Z",
+    "updatedAt": "2026-03-03T13:36:14.325Z",
+    "__v": 0,
+    "about": "Right-handed Batsmen",
+    "age": 30,
+    "gender": "Male",
+    "photoUrl": "https://peopleplaces.in/wp-content/uploads/2023/04/cropped-IMAGE_1653111576-1.webp"
+  },
+  {
+    "_id": "69a42517c9f11fc2e0efd4f3",
+    "firstName": "Prudhvidhar Reddy",
+    "lastName": "Vatte",
+    "email": "vatteprudhvidharreddy18@gmail.com",
+    "password": "$2b$10$n5U0o5xiIsLH9Q.TPljArOabaQF1gCyIpwP1uE8EoC0Dple4x5WxC",
+    "skills": [],
+    "createdAt": "2026-03-01T11:37:59.141Z",
+    "updatedAt": "2026-03-01T11:37:59.141Z",
+    "__v": 0,
+    "photoUrl": "https://media.licdn.com/dms/image/v2/D5603AQFqvrM_Lw9Rig/profile-displayphoto-scale_400_400/B56ZuCac26GsAg-/0/1767419531971?e=1773878400&v=beta&t=0AH4qSGACBr_3tDY4OqTBG8ddtneBe7RVGdu79Ngxo4",
+    "age": "21",
+    "gender": "Male",
+    "about": "right-arm medium pace"
+  },
+  {
+    "_id": "69a42605c9f11fc2e0efd4fc",
+    "firstName": "Vidhyadhar Reddy",
+    "lastName": "Vatte",
+    "email": "vattevidhyadharreddy18@gmail.com",
+    "password": "$2b$10$NQx2aF2.kekrNKPEMrNsKOTy6E7e7pqUlKf/29urdRtJ1SwoDNFjO",
+    "skills": [],
+    "createdAt": "2026-03-01T11:41:57.145Z",
+    "updatedAt": "2026-03-03T07:52:38.194Z",
+    "__v": 0,
+    "age": 23,
+    "about": "Right-arm medium Pace",
+    "gender": "Male",
+    "photoUrl": "https://media.licdn.com/dms/image/v2/D5603AQHUq9bCs_uPAw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1725711361018?e=1773878400&v=beta&t=oQ24o6oKCESAf1mLeiIPUnVMa1sA7DZfgDocLQ0NOsM"
+  },
+  {
+    "_id": "69a85e99f3be757a9e13761d",
+    "firstName": "Test",
+    "lastName": "User",
+    "email": "test12345@test.com",
+    "password": "$2b$10$4X.r9sn1M.8i2o1aioKr2e76TiSkrY..zxlfE7a0/AdDhnrzvBcIi",
+    "skills": [],
+    "createdAt": "2026-03-04T16:32:25.963Z",
+    "updatedAt": "2026-03-04T16:32:25.963Z",
+    "__v": 0
+  },
+  {
+    "_id": "69a85f0ef3be757a9e137620",
+    "firstName": "Test",
+    "lastName": "User",
+    "email": "testuser.12345@example.com",
+    "password": "$2b$10$aakxtkC3aB2OqUDpi/6quOEfpXzPnZOazEoak.TWY5sayqvTM3DJe",
+    "skills": [],
+    "createdAt": "2026-03-04T16:34:22.328Z",
+    "updatedAt": "2026-03-04T16:34:22.328Z",
+    "__v": 0
+  }
+]

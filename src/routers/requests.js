@@ -3,96 +3,91 @@ const { userAuth } = require('../middleWare/auth');
 const ConnectionRequest = require('../models/ConnectionRequest');
 const User = require('../models/User');
 
-const requestsRouter=express.Router()
+
+const requestsRouter = express.Router()
 
 
 requestsRouter.post("/request/send/:status/:toUserId", userAuth, async (req, res) => {
-   try{
-   
+   try {
 
-   const fromUserId=req.user._id;
-   const toUserId=req.params.toUserId;
 
-   const status=req.params.status;
+      const fromUserId = req.user._id;
+      const toUserId = req.params.toUserId;
 
-   const allowedStatuses=[,"ignore","interested"];
+      const status = req.params.status;
 
-   if(!allowedStatuses.includes(status))
-   {
-    return res.status(400).json({ message: "Invalid status value" });
-   }
+      const allowedStatuses = ["ignore", "interested"];
 
-   const toUser=await User.findById(toUserId);
+      if (!allowedStatuses.includes(status)) {
+         return res.status(400).json({ message: "Invalid status value" });
+      }
 
-   if(!toUser)
-   {
-    return res.status(404).json({ message: "To user not found" });
-   }
+      const toUser = await User.findById(toUserId);
 
-   const existingRequest = await ConnectionRequest.findOne({
-      
-      
-     $or: [
+      if (!toUser) {
+         return res.status(404).json({ message: "To user not found" });
+      }
 
-      { fromUserId, toUserId },
-      { fromUserId: toUserId, toUserId: fromUserId },
-     ],
-   
-   
-    } );
-    
-    if(existingRequest)
-    {
-     return res.status(400).json({ message: "Connection request already exists" });
-    }
+      const existingRequest = await ConnectionRequest.findOne({
 
-    const connectionRequest = new ConnectionRequest({
+
+         $or: [
+
+            { fromUserId, toUserId },
+            { fromUserId: toUserId, toUserId: fromUserId },
+         ],
+
+
+      });
+
+      if (existingRequest) {
+         return res.status(400).json({ message: "Connection request already exists" });
+      }
+
+      const connectionRequest = new ConnectionRequest({
          fromUserId,
          toUserId,
          status,
-    })
+      })
 
-    const data = await connectionRequest.save();
+      const data = await connectionRequest.save();
 
-    return res.json({ message: `${req.user.firstName} is ${status} in ${toUser.firstName}`, data });
+      return res.json({ message: `${req.user.firstName} is ${status} in ${toUser.firstName}`, data });
    }
-   catch(e)
-   {
-    return res.status(400).json({ message: "ERROR", error: e.message })
+   catch (e) {
+      return res.status(400).json({ message: "ERROR", error: e.message })
    }
 });
 
 requestsRouter.post('/request/review/:status/:requestId', userAuth, async (req, res) => {
-   try{
-      const loggedInUser=req.user;
-      const allowedStatuses=["accepted","rejected"];
+   try {
+      const loggedInUser = req.user;
+      const allowedStatuses = ["accepted", "rejected"];
 
-      const {status,requestId}=req.params;
-         const connectionRequest=await ConnectionRequest.findById({_id:requestId,
-            toUserId:loggedInUser._id,
+      const { status, requestId } = req.params;
+      const connectionRequest = await ConnectionRequest.findById({
+         _id: requestId,
+         toUserId: loggedInUser._id,
 
-            status:"interested",
-         });
+         status: "interested",
+      });
 
-         if(!connectionRequest)
-         {
-            return res.status(404).json({ message: "Connection request not found" });
-         }
+      if (!connectionRequest) {
+         return res.status(404).json({ message: "Connection request not found" });
+      }
 
-         connectionRequest.status=status;
+      connectionRequest.status = status;
 
-         const data=await connectionRequest.save();
+      const data = await connectionRequest.save();
 
-        res.json({ message: `You have ${status} the connection request from ${loggedInUser.firstName}`, data });
+      res.json({ message: `You have ${status} the connection request from ${loggedInUser.firstName}`, data });
 
-      if(!allowedStatuses.includes(status))
-      {
+      if (!allowedStatuses.includes(status)) {
          return res.status(400).json({ message: "Invalid status value" });
       }
    }
-   catch(e)
-   {
+   catch (e) {
       res.status(400).json({ message: "ERROR", error: e.message })
    }
 })
-module.exports=requestsRouter
+module.exports = requestsRouter

@@ -1,0 +1,37 @@
+diff --git a/src/app.js b/src/app.js
+index ccc4696..2263702 100644
+--- a/src/app.js
++++ b/src/app.js
+@@ -1,9 +1,16 @@
+ const express = require('express');
+ const cookieParser = require('cookie-parser');
+ const connectDb = require('./config/db');
+-
++const cors = require('cors');
+ const app = express();
+ 
++app.use(cors({
++    origin: 'http://localhost:5173',
++    credentials: true,
++      methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
++    allowedHeaders: ["Content-Type", "Authorization"],
++}))
++
+ app.use(cookieParser());
+ app.use(express.json()); // MUST be before routes
+ 
+@@ -14,10 +21,10 @@ const profileRouters = require('./routers/Profile');
+ const requestsRouter = require('./routers/requests');
+ const userRouter = require('./routers/userRouter');
+ 
+-app.use('/auth', authRouters);
+-app.use('/profile', profileRouters);
+-app.use('/requests', requestsRouter);
+-app.use('/users', userRouter);
++app.use('/', authRouters);
++app.use('/', profileRouters);
++app.use('/', requestsRouter);
++app.use('/', userRouter);
+ 
+ 
+ 

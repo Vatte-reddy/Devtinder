@@ -8,9 +8,10 @@ const authRouters = express.Router();
 
 authRouters.post(
   "/signup",
-  validationSignup,
+
   async (req, res) => {
     try {
+      validationSignup(req)
       const { firstName, lastName, email, password } = req.body;
 
       const hashedPassword = await bcrypt.hash(password, 10);
@@ -22,8 +23,12 @@ authRouters.post(
         password: hashedPassword,
       });
 
-      await user.save();
-      res.status(201).json({ message: "User registered successfully" });
+      const savedUser = await user.save();
+      const token = await savedUser.getJWT(password);
+
+      res.cookie("token", token, { expires: new Date(Date.now() + 8 * 3600000), });
+
+      res.json(savedUser);
 
     } catch (error) {
       console.error(error);
@@ -40,12 +45,19 @@ authRouters.post("/login", async (req, res) => {
     if (!user) throw new Error("Invalid credentials");
 
     const isMatch = await bcrypt.compare(password, user.password);
-    if (!isMatch) throw new Error("Invalid credentials");
 
-    const token = jwt.sign({ userId: user._id }, 'DevTinder@17');
-    res.cookie("token", token, { httpOnly: true, sameSite: 'lax' });
+    if (isMatch) {
+      const token = await user.getJWT(password);
 
-    res.json({ message: "Login successful", token });
+      res.cookie("token", token, {
+        expires: new Date(Date.now() + 8 * 3600000),
+        httpOnly: true,
+        sameSite: 'lax'
+      });
+      res.send(user);
+    } else {
+      throw new Error("Invalid credentials");
+    }
 
   } catch (err) {
     res.status(400).json({ error: err.message });
@@ -53,8 +65,8 @@ authRouters.post("/login", async (req, res) => {
 });
 
 authRouters.post("/logout", (req, res) => {
-  res.clearCookie("token",null,{
-    expires : new Date(Date.now()),
+  res.clearCookie("token", null, {
+    expires: new Date(Date.now()),
   });
   res.send();
 });
